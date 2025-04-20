@@ -12,7 +12,18 @@ import pandas as pd
 plt.rcParams['font.sans-serif'] = ['SimHei']      # 支持中文
 plt.rcParams['axes.unicode_minus'] = False        # 解决负号 '-' 显示为方块的问题
 
-class_names = ['玻璃瓶', '菜叶菜帮', '茶叶渣', '厨房废品', '大骨头', '刀片', '瓜果皮壳', '肉类', '剩菜剩饭', '鱼骨鱼刺']
+class_names = [
+    "刀片",
+    "剩菜剩饭",
+    "厨房废品",
+    "大骨头",
+    "玻璃瓶",
+    "瓜果皮壳",
+    "肉类",
+    "茶叶渣",
+    "菜叶菜帮",
+    "鱼骨鱼刺"
+]
 
 imagenet_mean = [0.485, 0.456, 0.406]
 imagenet_std = [0.229, 0.224, 0.225]
@@ -70,8 +81,8 @@ print(f"Top-5 Accuracy: {top5_acc:.4f}")
 # ------------------------ 分类报告 ------------------------
 report = classification_report(all_labels, all_preds, target_names=class_names, output_dict=True)
 df_report = pd.DataFrame(report).transpose()
-df_report.to_excel("classification_report.xlsx", index=True)  # 输出 Excel 文件
-print("分类报告已保存为 classification_report.xlsx")
+df_report.to_excel("classification_reportA.xlsx", index=True)  # 输出 Excel 文件
+print("分类报告已保存为 classification_reportA.xlsx")
 
 # ------------------------ 混淆矩阵 ------------------------
 cm = confusion_matrix(all_labels, all_preds)
