@@ -1,1 +1,2 @@
 # ResNetGarbage_classification
+使用ResNet网络进行垃圾分类
