@@ -23,10 +23,10 @@ transform_test = transforms.Compose([
     transforms.Normalize(mean=imagenet_mean, std=imagenet_std)
 ])
 
-net = torchvision.models.resnet18(weights=None)
+net = torchvision.models.resnet50(weights=None)
 net.fc = nn.Linear(net.fc.in_features, 10)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-net.load_state_dict(torch.load('./models/test_best_100epoch_resnet18.pth'))
+net.load_state_dict(torch.load('./models/test_best_10epoch_resnet50.pth'))
 net.to(device)
 net.eval()  # 评估模式
 valid_ds, test_ds = [torchvision.datasets.ImageFolder(
